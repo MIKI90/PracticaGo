@@ -3,14 +3,11 @@ package main
 import (
 	"fmt"
 	"strings"
-
+	"time"
 	/*"github.com/MIKI90/gocurso/flow"
 	"github.com/MIKI90/gocurso/name"
 	"github.com/MIKI90/gocurso/numbers"
-	"github.com/MIKI90/gocurso/structs"*/
-
-	"github.com/MIKI90/gocurso/maps"
-)
+	"github.com/MIKI90/gocurso/structs"*/)
 
 const helloWorld string = "Hola %s %s bienvenido \n"
 const test = "Test"
@@ -39,9 +36,22 @@ func main() {
 		flow.SwitchTest()
 		forTest()
 		strings2()*/
-	fmt.Println(maps.GetMap())
-	fmt.Println(maps.GetMap2())
-	fmt.Println(maps.GetMapName("MIKI"))
+	// fmt.Println(maps.GetMap())
+	// fmt.Println(maps.GetMap2())
+	// fmt.Println(maps.GetMapName("MIKI"))
+	// structs.InterfaceTest()
+	// resultSum, err := numbers.ExcepSum(50, 50)
+
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	// fmt.Printf("El resultado de la suma es: %d\n", resultSum)
+	//pointerTest()
+	go forGo(500)
+	go forGo(400)
+
+	time.Sleep(10000 * time.Millisecond)
 }
 
 func forTest() {
@@ -75,4 +85,36 @@ func strings2() {
 	fmt.Println(strings.Replace(text, "Hello", "Hola", 2))
 	fmt.Println(strings.Replace(text, "Hello", "Hola", 3))
 	fmt.Println(strings.Split(text, ","))
+}
+
+func pointerTest() {
+	a := 100
+	var b *int
+	b = &a
+	fmt.Println("muestra puntero")
+	fmt.Println(a, b)
+	fmt.Println(a, *b)
+	fmt.Println(&a, *b)
+	fmt.Println("modificando puntero")
+	*b = 10
+	fmt.Println(a, *b)
+	fmt.Println(&a, *b)
+	modifyPointer(b)
+	fmt.Println("modificando puntero en una funcion")
+	fmt.Println(a, *b)
+	fmt.Println(&a, *b)
+}
+
+func modifyPointer(c *int) {
+	*c = 3000
+}
+
+func helloGo(index int) {
+	fmt.Println("Go rutine number #", index)
+}
+
+func forGo(n int) {
+	for i := 0; i < n; i++ {
+		go helloGo(i)
+	}
 }
