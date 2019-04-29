@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-	"time"
 	/*"github.com/MIKI90/gocurso/flow"
 	"github.com/MIKI90/gocurso/name"
 	"github.com/MIKI90/gocurso/numbers"
@@ -47,11 +46,11 @@ func main() {
 	// }
 
 	// fmt.Printf("El resultado de la suma es: %d\n", resultSum)
-	//pointerTest()
-	go forGo(500)
-	go forGo(400)
+	pointerTest()
+	// go forGo(500)
+	// go forGo(400)
 
-	time.Sleep(10000 * time.Millisecond)
+	// time.Sleep(10000 * time.Millisecond)
 }
 
 func forTest() {
